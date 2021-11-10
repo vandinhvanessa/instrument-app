@@ -6,7 +6,7 @@ import * as Tone from 'tone';
 import { Visualizer } from '../Visualizers';
 
 
-export const WaveformVisualizer = new Visualizer(
+export const TwoDWaveformVisualizer = new Visualizer(
   'Waveform',
   (p5: P5, analyzer: Tone.Analyser) => {
     const width = window.innerWidth;
