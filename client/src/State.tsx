@@ -6,12 +6,12 @@ import { PianoInstrument } from './instruments/Piano';
 import { PianoInstrument2 } from './instruments/mk1159';
 import { BassInstrument } from './instruments/Bass';
 import { PanFluteInstrument } from './instruments/PanFlute';
-import { steelPan } from './instruments/Steelpan';
+import { marimba } from './instruments/Marimba';
 
 import { WaveformVisualizer } from './visualizers/Waveform';
 import { FlyNotesVisualizer } from './visualizers/FlyNotes';
 import { TwoDWaveformVisualizer } from './visualizers/TwoDWaveform';
-import { rainDropVisualizer } from './visualizers/RainDrop';
+import { AtomSpasmVisualizer } from './visualizers/AtomSpasm';
 
 /** ------------------------------------------------------------------------ **
  * The entire application state is stored in AppState.
@@ -25,8 +25,8 @@ import { rainDropVisualizer } from './visualizers/RainDrop';
  */
 export type AppState = Map<string, any>;
 
-const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, steelPan]);
-const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, TwoDWaveformVisualizer, rainDropVisualizer]);
+const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba]);
+const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, TwoDWaveformVisualizer, AtomSpasmVisualizer]);
 export const defaultState: AppState = Map<string, any>({
   instruments,
   visualizers,

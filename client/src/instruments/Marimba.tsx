@@ -6,12 +6,13 @@ import React from 'react';
 
 // project imports
 import { Instrument, InstrumentProps } from '../Instruments';
-
+import backgroundImage from '../img/wood-background3.png';
+import marimbaMallet from '../img/mallet3.png';
 /** ------------------------------------------------------------------------ **
  * Contains implementation of components for Piano.
  ** ------------------------------------------------------------------------ */
 
-interface PianoKeyProps {
+interface MarimbaProps {
   note: string; // C, Db, D, Eb, E, F, Gb, G, Ab, A, Bb, B
   duration?: string;
   synth?: Tone.Synth; // Contains library code for making sound
@@ -20,12 +21,12 @@ interface PianoKeyProps {
   index: number; // octave + index together give a location for the piano key
 }
 
-export function PianoKey({
+export function MarimbaKey({
   note,
   synth,
   minor,
   index,
-}: PianoKeyProps): JSX.Element {
+}: MarimbaProps): JSX.Element {
   /**
    * This React component corresponds to either a major or minor key in the piano.
    * See `PianoKeyWithoutJSX` for the React component without JSX.
@@ -44,11 +45,16 @@ export function PianoKey({
       })}
       style={{
         // CSS
-        top: 0,
-        left: `${index * 2}rem`,
+        top: minor ? `${index/10}rem` : 80,
+        left: `${index * 3}rem`,
         zIndex: minor ? 1 : 0,
-        width: minor ? '1.5rem' : '2rem',
-        marginLeft: minor ? '0.25rem' : 0,
+        width: minor ? '2rem' : '2.25rem',
+        marginLeft: minor ? '3.25rem' : 50,
+        //height: `10rem`
+        //height: minor ? 130 : `${index/10}rem` 
+        height: minor ? `${(-index/10) + 8}rem` : `${((-index/7) + 13.5)}rem`, 
+        background: `url(${backgroundImage})`,
+        cursor: `url(${marimbaMallet}), auto`
       }}
     ></div>
   );
@@ -60,7 +66,7 @@ function PianoKeyWithoutJSX({
   synth,
   minor,
   index,
-}: PianoKeyProps): JSX.Element {
+}: MarimbaProps): JSX.Element {
   /**
    * This React component for pedagogical purposes.
    * See `PianoKey` for the React component with JSX (JavaScript XML).
@@ -86,7 +92,7 @@ function PianoKeyWithoutJSX({
   );
 }
 
-function PianoType({ title, onClick, active }: any): JSX.Element {
+function MarimbaType({ title, onClick, active }: any): JSX.Element {
   return (
     <div
       onClick={onClick}
@@ -100,7 +106,8 @@ function PianoType({ title, onClick, active }: any): JSX.Element {
   );
 }
 
-function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
+function Marimba(): JSX.Element {
+
   const keys = List([
     { note: 'C', idx: 0 },
     { note: 'Db', idx: 0.5 },
@@ -116,38 +123,62 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
     { note: 'B', idx: 6 },
   ]);
 
-  const setOscillator = (newType: Tone.ToneOscillatorType) => {
+  /*const setOscillator = (newType: Tone.ToneOscillatorType) => {
     setSynth(oldSynth => {
       oldSynth.disconnect();
 
       return new Tone.Synth({
-        oscillator: { type: newType } as Tone.OmniOscillatorOptions,
+        oscillator: { type: newType,  } as Tone.OmniOscillatorOptions,
       }).toDestination();
     });
   };
 
   const oscillators: List<OscillatorType> = List([
-    'sine',
-    'sawtooth',
-    'square',
-    'triangle',
-    'fmsine',
-    'fmsawtooth',
-    'fmtriangle',
-    'amsine',
-    'amsawtooth',
-    'amtriangle',
-  ]) as List<OscillatorType>;
+    //'sine',
+    //'sawtooth',
+    //'square',
+    //'triangle',
+    //'fmsine',
+    //'fmsawtooth',
+    //'fmtriangle',
+    //'amsine',
+    //'amsawtooth',
+    //'amtriangle',
+  ]) as List<OscillatorType>;*/
+
+  const synth = new Tone.Synth({
+    "volume": 0,
+    "detune": 0,
+    "portamento": 0.05,
+    "envelope": {
+      "attack": 0.5,
+      "attackCurve": "exponential",
+      "decay": 0.2,
+      "decayCurve": "exponential",
+      "release": 0.3,
+      "releaseCurve": "exponential",
+      "sustain": 0.1
+    },
+    "oscillator": {
+      "partialCount": 2,
+      "partials": [
+        1,
+        1
+      ],
+      "phase": 0,
+      //"type": "sine2"
+    }
+  }).toDestination();
 
   return (
     <div className="pv4">
       <div className="relative dib h4 w-100 ml4">
-        {Range(2, 7).map(octave =>
+        {Range(2, 5).map(octave =>
           keys.map(key => {
             const isMinor = key.note.indexOf('b') !== -1;
             const note = `${key.note}${octave}`;
             return (
-              <PianoKey
+              <MarimbaKey
                 key={note} //react key
                 note={note}
                 synth={synth}
@@ -159,18 +190,8 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
           }),
         )}
       </div>
-      <div className={'pl4 pt4 flex'}>
-        {oscillators.map(o => (
-          <PianoType
-            key={o}
-            title={o}
-            onClick={() => setOscillator(o)}
-            active={synth?.oscillator.type === o}
-          />
-        ))}
-      </div>
     </div>
   );
 }
 
-export const steelPan = new Instrument('Steelpan', Piano);
+export const marimba = new Instrument('Marimba', Marimba);
