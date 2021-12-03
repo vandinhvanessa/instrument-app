@@ -22,7 +22,13 @@ INSERT INTO songs (id, song_title, notes)
 VALUES (5, 'Sailor Moon', 'A3 D4 F4 A4 A4 G4 G4 F4 E4 G4 A3 Db4 E4 G4 G4 F4 F4 E4 D4 F4 A3 D4 F4 A4 A4 G4 G4 A4 C5 Bb4 Bb4 A4 G4 A4 G4 F4 E4 D4');
 
 INSERT INTO songs (id, song_title, notes)
-VALUES (6, 'Megalovania Intro', 'D3 D3 D4 A3 Ab3 G3 F3 F3 F3 G3 C3 C3 D4 A3 Ab3 G3 F3 F3 F3 G3 B2 B2 D4 A3 Ab3 G3 F3 F3 F3 G3 Bb2 Bb2 D4 A3 Ab3 G3 F3 F3 F3 G3');
+VALUES (6, 'Megalovania Intro', 'D4 D4 D5 A4 Ab4 G4 F4 F4 F4 G4 C4 C4 D5 A4 Ab4 G4 F4 F4 F4 G4 B3 B3 D5 A4 Ab4 G4 F4 F4 F4 G4 Bb3 Bb3 D5 A4 Ab4 G4 F4 F4 F4 G4');
 
 INSERT INTO songs (id, song_title, notes)
-VALUES (7, 'Megalovania Bassline', 'F2 F2 F2 F2 F2 F2 F2 F0 E2 E2 E2 E2 E2 E2 E2 E0 D2 D2 D2 D2 D2 D2 D2 D0 Db2 Db2 Db2 E2 E2 E2 E2 E0');
+VALUES (7, 'Megalovania 2nd part Primary', 'D0 D5 A4 Ab4 G4 F4 F4 F4 G4 C0 D5 A4 Ab4 G4 F4 F4 F4 G4 B0 D5 A4 Ab4 G4 F4 F4 F4 G4 Bb0 D5 A4 Ab4 G4 F4 F4 F4 G4');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (8, 'Megalovania 2nd part Bassline', 'F3 F3 F3 F3 F3 F3 F3 F0 E3 E3 E3 E3 E3 E3 E3 E0 D3 D3 D3 D3 D3 D3 D3 D0 Db3 Db3 Db3 E3 E3 E3 E3 E0');
+
+-- INSERT INTO songs (id, song_title, notes) 
+-- VALUES (10, 'A Chord Test', '[A2, E2, A3, Db2]');
