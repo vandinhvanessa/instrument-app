@@ -2,11 +2,11 @@
 import * as Tone from 'tone';
 import classNames from 'classnames';
 import { List, Range } from 'immutable';
-import React from 'react';
+import React, {useEffect} from 'react';
 import fluteKey from '../img/bambooimage.jpg'
 
 // project imports
-import { Instrument } from '../Instruments';
+import { Instrument, InstrumentProps } from '../Instruments';
 
 /** ------------------------------------------------------------------------ **
  * Contains implementation of components for Piano.
@@ -88,8 +88,22 @@ function PianoKeyWithoutJSX({
   );
 }
 
+function PanFluteType({ title, onClick, active }: any): JSX.Element {
+  return (
+    <div
+      onClick={onClick}
+      className={classNames('dim pointer ph2 pv1 ba mr2 br1 fw7 bw1', {
+        'b--black black': active,
+        'gray b--light-gray': !active,
+      })}
+    >
+      {title}
+    </div>
+  );
+}
 
-function PanFlute(): JSX.Element {
+
+function PanFlute({synth, setSynth}: InstrumentProps): JSX.Element {
 
   
   const keys = List([
@@ -107,32 +121,41 @@ function PanFlute(): JSX.Element {
     { note: 'B', idx: 6 },
   ]);
 
-  const synth = new Tone.Synth({
-    "volume": 1,
-    "detune": 0,
-    "portamento": 0.09,
-    "envelope": {
-    "attack": 5,
-    "attackCurve": "sine",
-    "decay": 0.3,
-    "decayCurve": "exponential",
-    "release": 1,
-    "releaseCurve": "exponential",
-    "sustain": 0.2
-    },
-    "oscillator": {
-    "partialCount": 4,
-    "partials": [
-      1,
-      0.586181640625,
-      0.019775390625,
-      0.000244140625
-    ],
-    "phase": 0
-    },
-      }).toDestination();
 
+  const setOscillator = () => {
+    setSynth(oldSynth => {
+      oldSynth.disconnect();
 
+      return new Tone.Synth({
+          "volume": 1,
+          "detune": 0,
+          "portamento": 0.09,
+          "envelope": {
+          "attack": 5,
+          "attackCurve": "sine",
+          "decay": 0.3,
+          "decayCurve": "exponential",
+          "release": 1,
+          "releaseCurve": "exponential",
+          "sustain": 0.2
+          },
+          "oscillator": {
+          "partialCount": 4,
+          "partials": [
+            1,
+            0.586181640625,
+            0.019775390625,
+            0.000244140625
+          ],
+          "phase": 0
+          },
+            }).toDestination();
+    });
+  };
+
+  useEffect(() =>{
+    setOscillator();
+  },[])
 
   return (
     <div className="pv3">
