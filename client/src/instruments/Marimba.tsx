@@ -2,7 +2,7 @@
 import * as Tone from 'tone';
 import classNames from 'classnames';
 import { List, Range } from 'immutable';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 // project imports
 import { Instrument, InstrumentProps } from '../Instruments';
@@ -106,7 +106,7 @@ function MarimbaType({ title, onClick, active }: any): JSX.Element {
   );
 }
 
-function Marimba(): JSX.Element {
+function Marimba({synth, setSynth}: InstrumentProps): JSX.Element {
 
   const keys = List([
     { note: 'C', idx: 0 },
@@ -123,17 +123,43 @@ function Marimba(): JSX.Element {
     { note: 'B', idx: 6 },
   ]);
 
-  /*const setOscillator = (newType: Tone.ToneOscillatorType) => {
+  const setOscillator = () => {
     setSynth(oldSynth => {
       oldSynth.disconnect();
 
       return new Tone.Synth({
-        oscillator: { type: newType,  } as Tone.OmniOscillatorOptions,
+        "volume": 0,
+        "detune": 0,
+        "portamento": 0.05,
+        "envelope": {
+        "attack": 0.1,
+        "attackCurve": "exponential",
+        "decay": 0.3,
+        "decayCurve": "exponential",
+        "release": 1.5,
+        "releaseCurve": "exponential",
+        "sustain": 0.1
+      },
+      "oscillator": {
+      "partialCount": 5,
+      "partials": [
+        0.007236810378086415,
+        1,
+        0.0625,
+        1,
+        0.8434636622299385
+      ],
+      "phase": 0,
+      //"type": "custom"
+      }
       }).toDestination();
     });
   };
 
-  const oscillators: List<OscillatorType> = List([
+  useEffect(() =>{
+    setOscillator();
+  },[])
+  /*const oscillators: List<OscillatorType> = List([
     //'sine',
     //'sawtooth',
     //'square',
@@ -146,29 +172,32 @@ function Marimba(): JSX.Element {
     //'amtriangle',
   ]) as List<OscillatorType>;*/
 
-  const synth = new Tone.Synth({
+  /*const synth = new Tone.Synth({
     "volume": 0,
     "detune": 0,
     "portamento": 0.05,
     "envelope": {
-      "attack": 0.5,
+      "attack": 0.1,
       "attackCurve": "exponential",
-      "decay": 0.2,
+      "decay": 0.3,
       "decayCurve": "exponential",
-      "release": 0.3,
+      "release": 1.5,
       "releaseCurve": "exponential",
       "sustain": 0.1
     },
     "oscillator": {
-      "partialCount": 2,
+      "partialCount": 5,
       "partials": [
+        0.007236810378086415,
         1,
-        1
+        0.0625,
+        1,
+        0.8434636622299385
       ],
       "phase": 0,
-      //"type": "sine2"
+      //"type": "custom"
     }
-  }).toDestination();
+  }).toDestination();*/
 
   return (
     <div className="pv4">
