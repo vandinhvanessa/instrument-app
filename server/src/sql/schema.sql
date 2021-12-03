@@ -20,3 +20,9 @@ VALUES (4, 'Basic March', 'G4 G4 Gb4 G4 E4 E4 E4 Eb4 E4 C4 C4 C4 E4 D4 C4 D4 D4 
 
 INSERT INTO songs (id, song_title, notes)
 VALUES (5, 'Sailor Moon', 'A3 D4 F4 A4 A4 G4 G4 F4 E4 G4 A3 Db4 E4 G4 G4 F4 F4 E4 D4 F4 A3 D4 F4 A4 A4 G4 G4 A4 C5 Bb4 Bb4 A4 G4 A4 G4 F4 E4 D4');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (6, 'Megalovania Intro', 'D3 D3 D4 A3 Ab3 G3 F3 F3 F3 G3 C3 C3 D4 A3 Ab3 G3 F3 F3 F3 G3 B2 B2 D4 A3 Ab3 G3 F3 F3 F3 G3 Bb2 Bb2 D4 A3 Ab3 G3 F3 F3 F3 G3');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (7, 'Megalovania Bassline', 'F2 F2 F2 F2 F2 F2 F2 F0 E2 E2 E2 E2 E2 E2 E2 E0 D2 D2 D2 D2 D2 D2 D2 D0 Db2 Db2 Db2 E2 E2 E2 E2 E0');
