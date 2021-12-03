@@ -10,6 +10,7 @@ import { steelPan } from './instruments/Steelpan';
 
 import { WaveformVisualizer } from './visualizers/Waveform';
 import { FlyNotesVisualizer } from './visualizers/FlyNotes';
+import { OdeToMS } from './visualizers/OdeToMS';
 import { TwoDWaveformVisualizer } from './visualizers/TwoDWaveform';
 import { rainDropVisualizer } from './visualizers/RainDrop';
 
@@ -26,7 +27,7 @@ import { rainDropVisualizer } from './visualizers/RainDrop';
 export type AppState = Map<string, any>;
 
 const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, steelPan]);
-const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, TwoDWaveformVisualizer, rainDropVisualizer]);
+const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, OdeToMS, TwoDWaveformVisualizer, rainDropVisualizer]);
 export const defaultState: AppState = Map<string, any>({
   instruments,
   visualizers,
