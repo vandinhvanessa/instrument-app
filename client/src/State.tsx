@@ -10,6 +10,7 @@ import { marimba } from './instruments/Marimba';
 
 import { WaveformVisualizer } from './visualizers/Waveform';
 import { FlyNotesVisualizer } from './visualizers/FlyNotes';
+import { OdeToMS } from './visualizers/OdeToMS';
 import { TwoDWaveformVisualizer } from './visualizers/TwoDWaveform';
 import { AtomSpasmVisualizer } from './visualizers/AtomSpasm';
 
