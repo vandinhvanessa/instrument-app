@@ -4,9 +4,12 @@ import { List, Map } from 'immutable';
 // project dependencies
 import { PianoInstrument } from './instruments/Piano';
 import { PianoInstrument2 } from './instruments/mk1159';
-import { BassInstrument } from './instruments/Bass';
 import { PanFluteInstrument } from './instruments/PanFlute';
 import { marimba } from './instruments/Marimba';
+import { BassInstrument } from './instruments/Bass';
+// import { BassInstrument } from './instruments/BassOld';
+import { GuitarInstrument } from './instruments/Guitar';
+import { UkeleleInstrument } from './instruments/Ukelele';
 
 import { WaveformVisualizer } from './visualizers/Waveform';
 import { FlyNotesVisualizer } from './visualizers/FlyNotes';
@@ -25,8 +28,8 @@ import { AtomSpasmVisualizer } from './visualizers/AtomSpasm';
  * 'visualizer': Visualizer
  */
 export type AppState = Map<string, any>;
-
-const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba]);
+// const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba]);
+const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba, GuitarInstrument, UkeleleInstrument]);
 const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, TwoDWaveformVisualizer, AtomSpasmVisualizer]);
 export const defaultState: AppState = Map<string, any>({
   instruments,
