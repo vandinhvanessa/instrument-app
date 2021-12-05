@@ -49,7 +49,7 @@ export function PanFluteKey({
         zIndex: minor ? 1 : 0,
         width: minor ? '1.5rem' : '2rem',
         marginLeft: minor ? '0.25rem' : 0,
-        height: `${index + 2}rem`,
+        height: `${35 - (1+index) * 1.5}rem`,
       }}
       src={fluteKey}
       alt=""
@@ -129,24 +129,28 @@ function PanFlute({synth, setSynth}: InstrumentProps): JSX.Element {
       return new Tone.Synth({
           "volume": 1,
           "detune": 0,
-          "portamento": 0.09,
+          "portamento": 0,
           "envelope": {
-          "attack": 5,
-          "attackCurve": "sine",
-          "decay": 0.3,
-          "decayCurve": "exponential",
-          "release": 1,
-          "releaseCurve": "exponential",
-          "sustain": 0.2
+            "attack": 10,
+            "attackCurve": "linear",
+            "decay": 0.3,
+            "decayCurve": "exponential",
+            "release": 0.8,
+            "releaseCurve": "exponential",
+            "sustain": 0.4
           },
           "oscillator": {
-          "partialCount": 4,
-          "partials": [
-            1,
-            0.586181640625,
-            0.019775390625,
-            0.000244140625
-          ],
+            "partialCount": 8,
+            "partials": [
+              1.2732395447351628,
+              0,
+              0.4244131815783876,
+              0,
+              0.25464790894703254,
+              0,
+              0.18189136353359467,
+              0
+            ],
           "phase": 0
           },
             }).toDestination();

@@ -32,3 +32,8 @@ VALUES (8, 'Megalovania 2nd part Bassline', 'F3 F3 F3 F3 F3 F3 F3 F0 E3 E3 E3 E3
 
 -- INSERT INTO songs (id, song_title, notes) 
 -- VALUES (10, 'A Chord Test', '[A2, E2, A3, Db2]');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES(9, 'Canon', 'A5 F#5 G5 A5 F#5 G5 A5 A4 B4 C#5 D5 E5 F#5 G5 F#5 D5 E5 F#5 F#4 G4 A4 B4 A4 G4 A4 F#4 G4 A4 F#4 B4 A4 G4 F#4 E4 F#4 E4 D4 E4 F#4 G4 A4 B4 G4 B4 
+A4 B4 C#5 D5 A4 B4 C#5 D5 E5 F#5 G5 A5 F#5 D5 E5 F#5 E5 D5 E5 C5 D5 E5 F#5 E5 D5 C5 D5 B4 C#5 D5 D4 E4 F#4 G4 F#4 E4 F#4 D5 C#5 D5 B4 D5 C#5 B4 A4 G4 A4 G4 F#4 
+G4 A4 B4 C#5 D5');
