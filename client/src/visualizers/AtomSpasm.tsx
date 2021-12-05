@@ -37,29 +37,22 @@ export const AtomSpasmVisualizer = new Visualizer(
       p5.stroke(randomizer1, randomizer2, randomizer3);
       let s1 = 200 * p5.noise(0.01 * p5.frameCount + 60);
       let s2 = 50 * p5.noise(0.01 * p5.frameCount + 60);
-      let s3 = 30 * p5.noise(0.01 * p5.frameCount + 60);
       p5.translate(300, 200);
      
-
       for(let i = 0; i < 10; i++){
         p5.push();
+        p5.ellipseMode(p5.CENTER);
         p5.rotate((p5.TWO_PI * p5.noise(0.01 * p5.frameCount + 10)) + p5.TWO_PI * i / 7);
         p5.translate(200 * p5.noise(0.01 * p5.frameCount + 50), 0);
-        p5.ellipse(0, 0, s1 + x * amplitude * Math.floor(Math.random() * 10), s2 + y * amplitude * Math.floor(Math.random() * 10));
+        p5.ellipse(0, 0, s1 + x * amplitude * Math.floor(Math.random() * 10) + 50, s2 + y * amplitude * Math.floor(Math.random() * 10) + 40);
+        p5.rotate(p5.PI * p5.random(0.01 * p5.frameCount + 10));
         for(let j = 0; j < 6; j++){
           p5.push();
           p5.rotate((p5.TWO_PI * p5.noise(0.01 * p5.frameCount + 20)) + p5.TWO_PI * j / 6);
           p5.translate(60 * p5.noise(0.01 * p5.frameCount + 40), 0);
           p5.rotate(p5.TWO_PI * p5.noise(0.01 * p5.frameCount + 30));
-          p5.ellipse(60 * p5.noise(0.01 * p5.frameCount + 40), 0, s2 + x * amplitude * Math.floor(Math.random() * 10), s2 + y * amplitude * Math.floor(Math.random() * 10));
-          /*for(let k = 0; k < 4; k++){
-            p5.push();
-            p5.rotate(p5.TWO_PI * p5.noise(0.01 * p5.frameCount + 40) + p5.TWO_PI * k / 3);
-            p5.translate(40 * p5.noise(0.01 * p5.frameCount + 60), 0);
-            p5.rotate(p5.TWO_PI * p5.noise(0.01 * p5.frameCount + 40));
-            p5.ellipse(40 * p5.noise(0.01 * p5.frameCount + 60), 0, s3 + x * amplitude * Math.floor(Math.random() * 10), s3  + y * amplitude * Math.floor(Math.random() * 10));
-            p5.pop();
-          }*/
+          p5.ellipse(60 * p5.noise(0.01 * p5.frameCount + 40), 0, s2 + x * amplitude * Math.floor(Math.random() * 10), s2 + y * amplitude * Math.floor(Math.random() * 10));   
+          p5.rotate(p5.PI * p5.random(0.01 * p5.frameCount + 10));
           p5.pop();
         }
         p5.pop();
