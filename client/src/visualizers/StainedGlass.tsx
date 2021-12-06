@@ -9,8 +9,8 @@ let xDirection = 0;
 let xValue = 10;
 let yDirection = 0;
 let yValue = 0;
-export const FlyNotesVisualizer = new Visualizer(
-  'FlyNotes',
+export const StainedGlassVisualizer = new Visualizer(
+  'StainedGlass',
   (p5: P5, analyzer: Tone.Analyser) => {
     const width = window.innerWidth;
     const height = window.innerHeight / 2;
@@ -22,25 +22,23 @@ export const FlyNotesVisualizer = new Visualizer(
 
     function directionChange(){
       // if(xDirection <= -width/2){
-      if(xDirection <= -width/2 && yValue == 0){
+      if(xDirection <= -width/2 + 50 && yValue == 0){
         yValue = 10;
         xValue = 0;
       // } else if(yDirection >= height) {
-      } else if(yDirection >= height/2 && xValue == 0) {
+      } else if(yDirection >= height/2 - 50 && xValue == 0) {
         yValue = 0;
         xValue = 10;
       // } else if(xDirection >= width/3){
-      } else if(xDirection >= width/2 - 250 && yValue == 0){
+      } else if(xDirection >= width/2 - 300 && yValue == 0){
         yValue = -10;
         xValue = 0;
       // } else if(yDirection <= height/2) {
-      } else if(yDirection <= -height/2 && xValue == 0) {
+      } else if(yDirection <= -height/2 + 50 && xValue == 0) {
         yValue = 0;
         xValue = -10;
       }
     }
-
-    // p5.background(0, 0, 0, 255);
 
     p5.strokeWeight(dim * .01);
 
@@ -58,10 +56,12 @@ export const FlyNotesVisualizer = new Visualizer(
       p5.stroke(getRandom(255 * amplitude), getRandom(255 * amplitude), getRandom(255 * amplitude));
       p5.curveVertex(x + xDirection, y + yDirection);
     }
+    p5.endShape();
     directionChange();
     xDirection += xValue;
     yDirection += yValue;
-
-    p5.endShape();
+    // if(values[0] = 0) {
+    //   p5.background(0, 0, 0, 255);
+    // }
   },
 );

@@ -12,7 +12,7 @@ import { GuitarInstrument } from './instruments/Guitar';
 import { UkeleleInstrument } from './instruments/Ukelele';
 
 import { WaveformVisualizer } from './visualizers/Waveform';
-import { FlyNotesVisualizer } from './visualizers/FlyNotes';
+import { StainedGlassVisualizer } from './visualizers/StainedGlass';
 import { OdeToMS } from './visualizers/OdeToMS';
 import { TwoDWaveformVisualizer } from './visualizers/TwoDWaveform';
 import { AtomSpasmVisualizer } from './visualizers/AtomSpasm';
@@ -30,7 +30,7 @@ import { AtomSpasmVisualizer } from './visualizers/AtomSpasm';
 export type AppState = Map<string, any>;
 // const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba]);
 const instruments = List([PianoInstrument, BassInstrument, PianoInstrument2, PanFluteInstrument, marimba, GuitarInstrument, UkeleleInstrument]);
-const visualizers = List([WaveformVisualizer, FlyNotesVisualizer, TwoDWaveformVisualizer, AtomSpasmVisualizer, OdeToMS]);
+const visualizers = List([WaveformVisualizer, StainedGlassVisualizer, TwoDWaveformVisualizer, AtomSpasmVisualizer, OdeToMS]);
 export const defaultState: AppState = Map<string, any>({
   instruments,
   visualizers,
