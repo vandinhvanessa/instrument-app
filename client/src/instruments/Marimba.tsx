@@ -159,46 +159,7 @@ function Marimba({synth, setSynth}: InstrumentProps): JSX.Element {
   useEffect(() =>{
     setOscillator();
   },[])
-  /*const oscillators: List<OscillatorType> = List([
-    //'sine',
-    //'sawtooth',
-    //'square',
-    //'triangle',
-    //'fmsine',
-    //'fmsawtooth',
-    //'fmtriangle',
-    //'amsine',
-    //'amsawtooth',
-    //'amtriangle',
-  ]) as List<OscillatorType>;*/
-
-  /*const synth = new Tone.Synth({
-    "volume": 0,
-    "detune": 0,
-    "portamento": 0.05,
-    "envelope": {
-      "attack": 0.1,
-      "attackCurve": "exponential",
-      "decay": 0.3,
-      "decayCurve": "exponential",
-      "release": 1.5,
-      "releaseCurve": "exponential",
-      "sustain": 0.1
-    },
-    "oscillator": {
-      "partialCount": 5,
-      "partials": [
-        0.007236810378086415,
-        1,
-        0.0625,
-        1,
-        0.8434636622299385
-      ],
-      "phase": 0,
-      //"type": "custom"
-    }
-  }).toDestination();*/
-
+  
   return (
     <div className="pv4">
       <div className="relative dib h4 w-100 ml4">
