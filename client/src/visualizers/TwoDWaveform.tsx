@@ -23,6 +23,7 @@ export const TwoDWaveformVisualizer = new Visualizer(
     p5.strokeWeight(dim*0.01);
     p5.stroke(150, 70, 120, 150);
     p5.noFill();
+    p5.translate(width/2, height/2);
   
 
     function getRandom(value: number){
@@ -48,59 +49,24 @@ export const TwoDWaveformVisualizer = new Visualizer(
     const values = analyzer.getValue();
     p5.beginShape();
     for (let i = 0; i < values.length; i++) {
+      let angle = p5.map(i, 0, values.length, 0, 360)
       const amplitude = values[i] as number;
-      const x = p5.map(i, 0, values.length - 1, 0, width);
-      const y = height / 2 + amplitude * height;
+      let radius = p5.map(amplitude * height, 0, 256, 50, 300)
+      const x = radius * p5.cos(angle);
+      const y = radius * p5.sin(angle);
 
-      if(hasDrawn === 0){
-        p5.translate(800, height/2)
-        p5.push()
-        p5.rect(50 + xDirection , 50 + yDirection, 50 + x * amplitude * getRandom(10), 50 + y * amplitude * getRandom(10));
-        p5.pop()
+      p5.stroke(getRandom(i * amplitude), getRandom(255 * amplitude), getRandom(255 * amplitude));
+      p5.line(xDirection, yDirection, x + xDirection, y + yDirection);
 
-        p5.push()
-        p5.rect(0 + xDirection , 100 + yDirection, 50 + x * amplitude * getRandom(10), 50 + y * amplitude * getRandom(10));
-        p5.pop()
-
-        p5.push()
-        p5.rect(100 + xDirection , 100 + yDirection, 50 + x * amplitude * getRandom(10), 50 + y * amplitude * getRandom(10));
-        p5.pop()
-
-        p5.push()
-        p5.rect(100 + xDirection ,0 + yDirection, 50 + x * amplitude * getRandom(10), 50 + y * amplitude * getRandom(10));
-        p5.pop()
-
-        p5.push()
-        p5.rect(0 + xDirection , 0 + yDirection, 50 + x * amplitude * getRandom(10), 50 + y * amplitude * getRandom(10));
-        p5.pop()
-        
-        p5.push()
-        p5.circle(75 + xDirection ,75 + yDirection,50 + y * amplitude * getRandom(10))
-        p5.pop();
-
-        hasDrawn = 1;
-        directionChange();
-        yChange();
-      }
-    
-      
-      // Place vertex
-      // if(i%5 === 0){
-      //   p5.rect(x, y, 20, 100 * getRandom(amplitude))
-      // }
-
-        //p5.point(x * getRandom(x), y * getRandom(y))
-
-        //p5.triangle(width/2 - 300 + amplitude * getRandom(width), 375 + amplitude * getRandom(height), width/2 + amplitude * getRandom(width), 220 + amplitude * getRandom(height), width/2 + 300 +amplitude * getRandom(width), 375 + amplitude * getRandom(height));
 
     }
-    // const amplitude = values[10] as number;
-
+    
+      
+    
+    directionChange();
+    yChange();
     xDirection += xValue;
     yDirection += yValue;
-    p5.endShape();
-    hasDrawn = 0;
-
-    
+    p5.endShape();    
   },
 );
