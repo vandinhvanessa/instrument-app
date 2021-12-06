@@ -46,6 +46,46 @@ interface InstrumentContainerProps {
   instrument: Instrument;
 }
 
+interface noteKey {
+  note: string,
+}
+
+export const noteKeys: noteKey[] = [
+  { note: 'C'},
+  { note: 'Db'},
+  { note: 'D'},
+  { note: 'Eb'},
+  { note: 'E'},
+  { note: 'F'},
+  { note: 'Gb'},
+  { note: 'G'},
+  { note: 'Ab'},
+  { note: 'A'},
+  { note: 'Bb'},
+  { note: 'B'},
+];
+
+// interface scaleKey {
+//   note: string,
+//   octaveOffset: number
+// }
+
+// interface scale {
+//   [name: string]: scaleKey[]
+// }
+
+// export const Scales: scale = {
+//   CMajor: [{note: 'C', octaveOffset: 0},
+//           {note: 'D', octaveOffset: 0},
+//           {note: 'E', octaveOffset: 0},
+//           {note: 'F', octaveOffset: 0},
+//           {note: 'G', octaveOffset: 0},
+//           {note: 'A', octaveOffset: 0},
+//           {note: 'B', octaveOffset: 0},
+//           {note: 'C', octaveOffset: 0},
+//         ],
+// }
+
 export const InstrumentContainer: React.FC<InstrumentContainerProps> = ({
   instrument,
   state,
