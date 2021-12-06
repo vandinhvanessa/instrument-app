@@ -2,7 +2,7 @@
 import * as Tone from 'tone';
 import classNames from 'classnames';
 import { List, Range } from 'immutable';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // project imports
 import { Instrument, InstrumentProps, noteKeys } from '../Instruments';
@@ -102,6 +102,10 @@ export function Stringed({ synth, setSynth }: InstrumentProps, instrumentStrings
     'amsawtooth',
     'amtriangle',
   ]) as List<OscillatorType>;
+
+  useEffect(() =>{
+    setOscillator('triangle');
+  },[])
 
   return (
     <div className="pv4">
