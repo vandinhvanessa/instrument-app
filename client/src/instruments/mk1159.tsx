@@ -5,7 +5,6 @@ import { List, Range } from 'immutable';
 import React, { useEffect } from 'react';
 import drumImage from '../img/taiko.png';
 
-
 // project imports
 import { Instrument, InstrumentProps } from '../Instruments';
 
@@ -164,8 +163,6 @@ function PianoKeyWithoutJSX({
         },
         [],
     );
-
-
 }
 
 function PianoType({ title, onClick, active }: any): JSX.Element {
@@ -186,7 +183,7 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
     const keys = List([
         { note: 'C', idx: 0 },
         //{ note: 'Db', idx: 0.5 },
-        // { note: 'D', idx: 1 },
+        //{ note: 'D', idx: 1 },
         // { note: 'Eb', idx: 1.5 },
         // { note: 'E', idx: 2 },
         // { note: 'F', idx: 3 },
@@ -195,7 +192,7 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
         // { note: 'Ab', idx: 4.5 },
         // { note: 'A', idx: 5 },
         // { note: 'Bb', idx: 5.5 },
-        // { note: 'B', idx: 6 },
+        //{ note: 'B', idx: 6 },
     ]);
 
     const setOscillator = (newType: Tone.ToneOscillatorType) => {
@@ -231,7 +228,7 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
                 {Range(2, 3).map(octave =>
                     keys.map(key => {
                         const isMinor = key.note.indexOf('b') !== -1;
-                        const note = `${key.note}${octave}`;
+                        const note = `${'C'}${octave}`;
                         return (
                             <PianoKey
                                 key={note} //react key
@@ -251,7 +248,7 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
                 {Range(2, 3).map(octave =>
                     keys.map(key => {
                         const isMinor = key.note.indexOf('b') !== -1;
-                        const note = `${key.note}${octave}`;
+                        const note = `${'F'}${octave}`;
                         return (
                             <TaikoEdge
                                 key={note} //react key
@@ -261,7 +258,6 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
                                 octave={octave}
                                 index={(octave - 2) * 7 + key.idx}
                             />
-
 
                         );
                     }),
