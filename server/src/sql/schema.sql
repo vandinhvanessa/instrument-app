@@ -40,3 +40,7 @@ G4 A4 B4 C#5 D5');
 
 INSERT INTO songs (id, song_title, notes)
 VALUES (11, 'Mario Theme','E4 E4 E4 C4 E4 G4 G3 C4 G3 E3 F3 B3 Bb3 A3 G3 E4 G4 A4 F4 G4 E4 C4 D4 B3');
+
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (12, 'Drum beat','C3 C3 B1 C3 C3 B1 C3 C3 B1 C3 C3 B1 C3 C3 B1 C3 C3 B1 C3 C3 B1');
