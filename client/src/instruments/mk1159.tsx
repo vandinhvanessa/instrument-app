@@ -2,7 +2,7 @@
 import * as Tone from 'tone';
 import classNames from 'classnames';
 import { List, Range } from 'immutable';
-import React from 'react';
+import React, { useEffect } from 'react';
 import drumImage from '../img/taiko.png';
 
 
@@ -220,6 +220,10 @@ function Piano({ synth, setSynth }: InstrumentProps): JSX.Element {
         // 'amsawtooth',
         // 'amtriangle',
     ]) as List<OscillatorType>;
+
+    useEffect(() => {
+        setOscillator('triangle');
+    }, [])
 
     return (
         <div className="pv4">
