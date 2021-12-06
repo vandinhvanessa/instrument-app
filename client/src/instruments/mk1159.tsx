@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { List, Range } from 'immutable';
 import React, { useEffect } from 'react';
 import drumImage from '../img/taiko.png';
+import taikoStick from '../img/taikoStick2.png';
+
 
 // project imports
 import { Instrument, InstrumentProps } from '../Instruments';
@@ -52,6 +54,7 @@ export function PianoKey({
                 // zIndex: minor ? 1 : 0,
                 // width: minor ? '1.5rem' : '2rem',
                 // marginLeft: minor ? '0.25rem' : 0,
+                cursor: `url(${taikoStick}),auto`,
                 background: `url(${drumImage})`,
                 backgroundPosition: 'center',
                 backgroundSize: 'contain',
@@ -108,6 +111,7 @@ export function TaikoEdge({
                 // width: minor ? '1.5rem' : '2rem',
                 // marginLeft: minor ? '0.25rem' : 0,
                 // color: 'red',
+                cursor: `url(${taikoStick}),auto`,
                 background: `brown`,
                 backgroundPosition: 'center',
                 backgroundSize: 'contain',
